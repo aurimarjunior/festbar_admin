@@ -14,11 +14,11 @@ import com.android.build.OutputFile
  * project.ext.react = [
  *   // the name of the generated asset file containing your JS bundle
  *   bundleAssetName: "index.android.bundle",
- *   // whether to bundle JS and assets in debug mode
  *
  *   // the entry file for bundle generation
  *   entryFile: "index.android.js",
  *
+ *   // whether to bundle JS and assets in debug mode
  *   bundleInDebug: false,
  *
  *   // whether to bundle JS and assets in release mode
