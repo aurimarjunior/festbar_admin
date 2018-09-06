@@ -38,7 +38,7 @@ export default (variables = variable) => {
         "NativeBase.Input": {
           paddingLeft: null,
           top: 20,
-          marginLeft: null
+          marginLeft: null,
         },
         "NativeBase.Label": {
           left: 0,
