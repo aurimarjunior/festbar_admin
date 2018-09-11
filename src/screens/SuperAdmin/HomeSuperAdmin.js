@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { View, Fab, Container, Header, Title, Button, Icon, Tabs, Tab, Right, Left, Body, StyleProvider } from "native-base";
-import IconAw from 'react-native-vector-icons/FontAwesome';
+import { View, Fab, Container, Header, Title, Button, Tabs, Tab, Right, Icon, Left, Body, StyleProvider } from "native-base";
+//import Icon from "react-native-vector-icons/MaterialIcons";
 
 
 import TabOne from "./tabSolicitacoes";
@@ -29,7 +29,7 @@ class HomeSuperAdmin extends Component {
           </Body>
           <Right>
             <Button transparent>
-              <IconAw name="location" />
+              <Icon name="more" />
             </Button>
           </Right>
         </Header>
