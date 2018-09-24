@@ -37,8 +37,8 @@ export default (variables = variable) => {
       ".floatingLabel": {
         "NativeBase.Input": {
           paddingLeft: null,
-          top: 20,
-          marginLeft: null,
+          top: 10,
+          marginLeft: null
         },
         "NativeBase.Label": {
           left: 0,

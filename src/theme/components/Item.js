@@ -13,12 +13,7 @@ export default (variables = variable) => {
         top: 8
       },
       "NativeBase.Icon": {
-        top: 6,
-        paddingTop: 8
-      },
-      "NativeBase.IconNB": {
-        top: 6,
-        paddingTop: 8
+        top: 6
       }
     },
     ".fixedLabel": {
@@ -54,8 +49,7 @@ export default (variables = variable) => {
         alignSelf: Platform.OS === "ios" ? "stretch" : "flex-start",
         flex: 1,
         width: Platform.OS === "ios" ? null : variables.deviceWidth - 25,
-        fontSize: variables.inputFontSize,
-        lineHeight: variables.inputLineHeight - 6
+        fontSize: variables.inputFontSize
       },
       flexDirection: null,
       height: variables.inputHeightBase + 15
@@ -98,7 +92,8 @@ export default (variables = variable) => {
       color: variables.inputColor,
       flex: 1,
       top: Platform.OS === "ios" ? 1.5 : undefined,
-      fontSize: variables.inputFontSize
+      fontSize: variables.inputFontSize,
+      lineHeight: variables.inputLineHeight
     },
     ".underline": {
       "NativeBase.Input": {

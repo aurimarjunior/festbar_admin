@@ -5,11 +5,15 @@ export default {
   },
 
   logo: {
-    
+    flex: 1,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center"
   },
 
   formulario: {
-    
+    flex: 2,
+    padding: 10
   },
 
   botao: {

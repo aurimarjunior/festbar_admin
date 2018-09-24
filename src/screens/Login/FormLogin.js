@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Image, View, Icon, Container, Content, Button, Item, Label, Input, Form, Text, StyleProvider } from "native-base";
+import { View, Image } from 'react-native';
+import { Container, Button, Item, Label, Input, Form, Text, StyleProvider } from "native-base";
 
 import styles from "./styles";
-import teacher1 from "../../images/pp.jpg";
 
 import getTheme from "./../../theme/components";
 import platform from "./../../theme/variables/platform";
@@ -10,37 +10,42 @@ import platform from "./../../theme/variables/platform";
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
-const FormLogin = props => {
+const logo = require("../../images/logo.jpg");
+
+class FormLogin extends Component {
+  render() {
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container style={styles.container}>
-          <Content>
-          </Content>
-          <Content padder style={styles.formulario}>     
-            <Form>             
-              <Item>
-                <Icon active name="person"/>
-                <Input placeholder="E-mail"/>
-              </Item>
-              <Item>
-                <Icon active name="unlock"/>
-                <Input placeholder="Senha" secureTextEntry/>
-              </Item>
-            </Form> 
-          
-              <Button style={styles.botao} block 
-                onPress={() => Actions.homeSuperAdmin()}>
-                <Text>ENTRAR</Text>
-              </Button>
-              <Label style={{textAlign: 'center', marginTop:-8}} 
-                onPress={() => Actions.formRecupSenha()}> 
-                Esqueceu sua senha?
-              </Label>
-          </Content>
+          <View style={styles.logo}>
+            <Image source={logo} />
+          </View>
+
+          <Form style={styles.formulario}>
+            <Item floatingLabel>
+              <Label>E-mail</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel>
+              <Label>Senha</Label>
+              <Input secureTextEntry />
+            </Item>
+
+            <Button style={styles.botao} block
+              onPress={() => Actions.homeSuperAdmin()}>
+              <Text>ENTRAR</Text>
+            </Button>
+
+            <Label style={{ textAlign: 'center', marginTop: 1 }}
+              onPress={() => Actions.formRecupSenha()}>
+              Esqueceu sua senha?
+          </Label>
+          </Form>
         </Container>
       </StyleProvider>
     );
   }
+}
 
 const mapStateToProps = state => (
   {

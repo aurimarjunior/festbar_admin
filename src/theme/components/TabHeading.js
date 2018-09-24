@@ -16,8 +16,7 @@ export default (variables = variable) => {
     },
     "NativeBase.Text": {
       color: variables.topTabBarTextColor,
-      marginHorizontal: 7,
-      fontSize: 14
+      marginHorizontal: 7
     },
     "NativeBase.Icon": {
       color: variables.topTabBarTextColor,
