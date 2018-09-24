@@ -8,53 +8,27 @@ import platform from "../../theme/variables/platform";
 
 import { Actions } from 'react-native-router-flux';
 
-//preenchimento de CEP
-//<script src="https://cdn.jsdelivr.net/npm/cep-promise/dist/cep-promise.min.js"></script>
-
 class AddEmpresas extends Component {
     constructor(props) {
         super(props);
         this.state = {
             radio1: true,
-            radio2: false,
-            radio3: true,
-            radio4: false,
-            radio5: false
+            radio2: false
         };
     }
-    radio1PFisica() {
+    radio1Festa() {
         this.setState({
             radio1: true,
             radio2: false
         });
     }
-    radio2PJuridica() {
+    radio2Bar() {
         this.setState({
             radio1: false,
             radio2: true
         });
     }
-    radio3Festa() {
-        this.setState({
-            radio3: true,
-            radio4: false,
-            radio5: false
-        });
-    }
-    radio4Bar() {
-        this.setState({
-            radio3: false,
-            radio4: true,
-            radio5: false
-        });
-    }
-    radio5Ambos() {
-        this.setState({
-            radio3: false,
-            radio4: false,
-            radio5: true
-        });
-    }
+    
 
     render() {
         return (
@@ -67,47 +41,26 @@ class AddEmpresas extends Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Title>Cadastrar Empresa</Title>
+                            <Title>Cadastrar</Title>
                         </Body>
                         <Left />
                     </Header>
 
                     <Content>
                         <Form>
-                            <ListItem noBorder
-                                selected={this.state.radio1}
-                                onPress={() => this.radio1PFisica()}>
-                                <Left>
-                                    <Text>Pessoa Física</Text>
-                                </Left>
-                                <Right>
-                                    <Radio
-                                        selected={this.state.radio1}
-                                        onPress={() => this.radio1PFisica()} />
-                                </Right>
-                            </ListItem>
-                            <ListItem
-                                selected={this.state.radio2}
-                                onPress={() => this.radio2PJuridica()}>
-                                <Left>
-                                    <Text>Pessoa Jurídica</Text>
-                                </Left>
-                                <Right>
-                                    <Radio
-                                        selected={this.state.radio2}
-                                        onPress={() => this.radio2PJuridica()} />
-                                </Right>
+                            <ListItem noBorder style={{ marginBottom: -15, marginTop: 10 }}>
+                                <Text>Dados Pessoais:</Text>
                             </ListItem>
                             <ListItem noBorder>
                                 <Item floatingLabel>
-                                    <Label>Nome</Label>
+                                    <Label>Nome completo</Label>
                                     <Input />
                                 </Item>
                             </ListItem>
                             <ListItem noBorder>
                                 <Left>
                                     <Item floatingLabel>
-                                        <Label>CPF/CNPJ</Label>
+                                        <Label>CPF</Label>
                                         <Input />
                                     </Item>
                                 </Left>
@@ -124,10 +77,30 @@ class AddEmpresas extends Component {
                                     <Input />
                                 </Item>
                             </ListItem>
+
+                            <ListItem noBorder style={{ marginBottom: -15, marginTop: 10 }}>
+                                <Text>Sobre o estabelecimento:</Text>
+                            </ListItem>
+
                             <ListItem noBorder>
                                 <Left>
                                     <Item floatingLabel>
-                                        <Label>CEP</Label>
+                                        <Label>Nome Fantasia</Label>
+                                        <Input />
+                                    </Item>
+                                </Left>
+                                <Body>
+                                    <Item floatingLabel>
+                                        <Label>CNPJ</Label>
+                                        <Input />
+                                    </Item>
+                                </Body>
+                            </ListItem>
+
+                            <ListItem noBorder>
+                                <Left>
+                                    <Item floatingLabel>
+                                        <Label>Cidade</Label>
                                         <Input />
                                     </Item>
                                 </Left>
@@ -138,80 +111,38 @@ class AddEmpresas extends Component {
                                     </Item>
                                 </Body>
                             </ListItem>
-                            <ListItem noBorder>
-                                <Left>
-                                    <Item floatingLabel>
-                                        <Label>Cidade</Label>
-                                        <Input />
-                                    </Item>
-                                </Left>
-                                <Body>
-                                    <Item floatingLabel>
-                                        <Label>Bairro</Label>
-                                        <Input />
-                                    </Item>
-                                </Body>
+
+                            <ListItem noBorder style={{ marginBottom: -10, marginTop: 15 }}>
+                                <Text>Selecione a categoria:</Text>
                             </ListItem>
-                            <ListItem noBorder>
-                                <Left>
-                                    <Item floatingLabel>
-                                        <Label>Rua</Label>
-                                        <Input />
-                                    </Item>
-                                </Left>
-                                <Right>
-                                    <Item floatingLabel>
-                                        <Label>Nº</Label>
-                                        <Input />
-                                    </Item>
-                                </Right>
-                            </ListItem>
-                            
-                            <ListItem noBorder style={{ marginBottom: -15, marginTop: 10}}>
-                                <Text>Categoria:</Text>
-                            </ListItem>
-                            
-                            <ListItem noBorder
-                                selected={this.state.radio3}
-                                onPress={() => this.radio3Festa()}>
+
+                            <ListItem noBorder style={{ marginBottom: -15 }}
+                                selected={this.state.radio1}
+                                onPress={() => this.radio1Festa()}>
                                 <Left>
                                     <Text>Festa</Text>
                                 </Left>
                                 <Right>
-                                    <Radio
-                                        selected={this.state.radio3}
-                                        onPress={() => this.radio3Festa()} />
+                                    <Radio style={styles.botaoRadio}
+                                        selected={this.state.radio1}
+                                        onPress={() => this.radio1Festa()} />
                                 </Right>
                             </ListItem>
                             <ListItem noBorder
-                                selected={this.state.radio4}
-                                onPress={() => this.radio4Bar()}
+                                selected={this.state.radio2}
+                                onPress={() => this.radio2Bar()}
                             >
                                 <Left>
                                     <Text>Bar</Text>
                                 </Left>
                                 <Right>
-                                    <Radio
-                                        selected={this.state.radio4}
-                                        onPress={() => this.radio4Bar()}
+                                    <Radio style={styles.botaoRadio}
+                                        selected={this.state.radio2}
+                                        onPress={() => this.radio2Bar()}
                                     />
                                 </Right>
                             </ListItem>
-                            <ListItem 
-                                noBorder
-                                selected={this.state.radio5}
-                                onPress={() => this.radio5Ambos()}
-                            >
-                                <Left>
-                                    <Text>Ambos</Text>
-                                </Left>
-                                <Right>
-                                    <Radio
-                                        selected={this.state.radio5}
-                                        onPress={() => this.radio5Ambos()}
-                                    />
-                                </Right>
-                            </ListItem>
+
                         </Form>
                         <Button style={styles.botao} block>
                             <Text>CADASTRAR</Text>

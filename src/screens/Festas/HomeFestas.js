@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { IconNB, View, Fab, Container, Header, Title, Button, Icon, Tabs, Tab, Right, Left, Body, StyleProvider } from "native-base";
+import { Fab, Container, Header, Title, Button, Icon, Tabs, Tab, Right, Body, StyleProvider } from "native-base";
 
-import TabOne from "./tabIniciadas";
-import TabTwo from "./tabConcluidas";
+import TabOne from "./tabIniciados";
+import TabTwo from "./tabEncerrados";
 
 import getTheme from "./../../theme/components";
 import platform from "./../../theme/variables/platform";
+
+import styles from "./styles";
 
 import { Actions } from 'react-native-router-flux';
 
@@ -34,22 +36,20 @@ class HomeFestas extends Component {
         
 
         <Tabs>
-          <Tab heading="INICIADAS">
+          <Tab heading="INICIADOS">
             <TabOne />
           </Tab>
-          <Tab heading="CONCLUÍDAS">
+          <Tab heading="ENCERRADOS">
             <TabTwo />
           </Tab>
         </Tabs>
 
-        <Fab
+        <Fab style={styles.botaoFab}
           active={this.state.active}
           direction="up"
           containerStyle={{}}
-          style={{ backgroundColor: "#5067FF" }}
           position="bottomRight"
-          onPress={() => this.setState({ active: !this.state.active })}
-        >
+          onPress={() => Actions.addEvent()}>
           <Icon name="add" />
         </Fab>
         

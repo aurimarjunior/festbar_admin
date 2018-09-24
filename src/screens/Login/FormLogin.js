@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Image } from 'react-native';
-import { Container, Button, Item, Label, Input, Form, Text, StyleProvider } from "native-base";
+import { Container, Button,  Item, Label, Input, Form, Text, StyleProvider } from "native-base";
 
 import styles from "./styles";
 
@@ -10,7 +10,7 @@ import platform from "./../../theme/variables/platform";
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
-const logo = require("../../images/logo.jpg");
+const logo = require("../../images/logo.png");
 
 class FormLogin extends Component {
   render() {
@@ -32,7 +32,7 @@ class FormLogin extends Component {
             </Item>
 
             <Button style={styles.botao} block
-              onPress={() => Actions.homeSuperAdmin()}>
+              onPress={() => Actions.homeFestas()}>
               <Text>ENTRAR</Text>
             </Button>
 

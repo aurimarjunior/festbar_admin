@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, Radio, Container, Switch, Header, Label, Title, ListItem, Content, Button, Icon, Body, Left, Right, Item, Input, Form, StyleProvider } from "native-base";
+import { Text, Radio, Container, Header, Label, Title, ListItem, Content, Button, Icon, Body, Left, Right, Item, Input, Form, StyleProvider } from "native-base";
 
 import styles from "./styles";
 
@@ -8,14 +8,27 @@ import platform from "../../theme/variables/platform";
 
 import { Actions } from 'react-native-router-flux';
 
-
-class VisuEmpCad extends Component {
+class AddEvent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            radioCategoria: true
+            radio1: true,
+            radio2: false
         };
     }
+    radio1Festa() {
+        this.setState({
+            radio1: true,
+            radio2: false
+        });
+    }
+    radio2Bar() {
+        this.setState({
+            radio1: false,
+            radio2: true
+        });
+    }
+    
 
     render() {
         return (
@@ -28,13 +41,13 @@ class VisuEmpCad extends Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Title>Cadastro</Title>
+                            <Title>Cadastrar</Title>
                         </Body>
                         <Left />
                     </Header>
 
                     <Content>
-                    <Form>
+                        <Form>
                             <ListItem noBorder style={{ marginBottom: -15, marginTop: 10 }}>
                                 <Text>Dados Pessoais:</Text>
                             </ListItem>
@@ -100,35 +113,40 @@ class VisuEmpCad extends Component {
                             </ListItem>
 
                             <ListItem noBorder style={{ marginBottom: -10, marginTop: 15 }}>
-                                <Text>Categoria:</Text>
+                                <Text>Selecione a categoria:</Text>
                             </ListItem>
 
                             <ListItem noBorder style={{ marginBottom: -15 }}
-                                selected={this.state.radioCategoria}>
+                                selected={this.state.radio1}
+                                onPress={() => this.radio1Festa()}>
                                 <Left>
-                                    <Text>Festa/Bar</Text>
+                                    <Text>Festa</Text>
                                 </Left>
                                 <Right>
                                     <Radio style={styles.botaoRadio}
-                                        selected={this.state.radioCategoria} />
+                                        selected={this.state.radio1}
+                                        onPress={() => this.radio1Festa()} />
                                 </Right>
                             </ListItem>
-                            
-
-                            <ListItem icon style={{ marginBottom: 30, marginTop: 30 }} noBorder>
+                            <ListItem noBorder
+                                selected={this.state.radio2}
+                                onPress={() => this.radio2Bar()}
+                            >
                                 <Left>
-                                    <Button style={{ backgroundColor: "#8F8E93" }}>
-                                        <Icon active name="eye" />
-                                    </Button>
+                                    <Text>Bar</Text>
                                 </Left>
-                                <Body>
-                                    <Text>Status</Text>
-                                </Body>
                                 <Right>
-                                    <Switch value={true} onTintColor="#8C0052" />
+                                    <Radio style={styles.botaoRadio}
+                                        selected={this.state.radio2}
+                                        onPress={() => this.radio2Bar()}
+                                    />
                                 </Right>
                             </ListItem>
+
                         </Form>
+                        <Button style={styles.botao} block>
+                            <Text>CADASTRAR</Text>
+                        </Button>
                     </Content>
                 </Container>
             </StyleProvider>
@@ -136,4 +154,4 @@ class VisuEmpCad extends Component {
     }
 }
 
-export default VisuEmpCad;
+export default AddEvent;

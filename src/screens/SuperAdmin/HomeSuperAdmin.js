@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Icon, Fab, Container, Header, Title, Button, Tabs, Tab, Right, Body, StyleProvider } from "native-base";
+import { Icon, Fab, Container, Header, Title, Button, Tabs, Tab, Right, Body, StyleProvider } from "native-base";
 
 import TabOne from "./tabListSolicitEmp";
 import TabTwo from "./tabListEmpCad";

@@ -13,7 +13,7 @@ class VisuSolicitEmp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            radio: true
+            radioCategoria: true
         };
     }
 
@@ -36,25 +36,19 @@ class VisuSolicitEmp extends Component {
 
                     <Content>
                         <Form>
-                            <ListItem style={{ marginBottom: -10 }} noBorder>
-                                <Left>
-                                    <Text>Pessoa Física/Jurídica</Text>
-                                </Left>
-                                <Right>
-                                    <Radio selected={this.state.radio} />
-                                </Right>
+                        <ListItem noBorder style={{ marginBottom: -15, marginTop: 10 }}>
+                                <Text>Dados Pessoais:</Text>
                             </ListItem>
-
                             <ListItem noBorder>
                                 <Item floatingLabel>
-                                    <Label>Nome</Label>
+                                    <Label>Nome completo</Label>
                                     <Input />
                                 </Item>
                             </ListItem>
                             <ListItem noBorder>
                                 <Left>
                                     <Item floatingLabel>
-                                        <Label>CPF/CNPJ</Label>
+                                        <Label>CPF</Label>
                                         <Input />
                                     </Item>
                                 </Left>
@@ -71,10 +65,30 @@ class VisuSolicitEmp extends Component {
                                     <Input />
                                 </Item>
                             </ListItem>
+
+                            <ListItem noBorder style={{ marginBottom: -15, marginTop: 10 }}>
+                                <Text>Sobre o estabelecimento:</Text>
+                            </ListItem>
+
                             <ListItem noBorder>
                                 <Left>
                                     <Item floatingLabel>
-                                        <Label>CEP</Label>
+                                        <Label>Nome Fantasia</Label>
+                                        <Input />
+                                    </Item>
+                                </Left>
+                                <Body>
+                                    <Item floatingLabel>
+                                        <Label>CNPJ</Label>
+                                        <Input />
+                                    </Item>
+                                </Body>
+                            </ListItem>
+
+                            <ListItem noBorder>
+                                <Left>
+                                    <Item floatingLabel>
+                                        <Label>Cidade</Label>
                                         <Input />
                                     </Item>
                                 </Left>
@@ -85,45 +99,19 @@ class VisuSolicitEmp extends Component {
                                     </Item>
                                 </Body>
                             </ListItem>
-                            <ListItem noBorder>
-                                <Left>
-                                    <Item floatingLabel>
-                                        <Label>Cidade</Label>
-                                        <Input />
-                                    </Item>
-                                </Left>
-                                <Body>
-                                    <Item floatingLabel>
-                                        <Label>Bairro</Label>
-                                        <Input />
-                                    </Item>
-                                </Body>
-                            </ListItem>
-                            <ListItem noBorder>
-                                <Left>
-                                    <Item floatingLabel>
-                                        <Label>Rua</Label>
-                                        <Input />
-                                    </Item>
-                                </Left>
-                                <Right>
-                                    <Item floatingLabel>
-                                        <Label>Nº</Label>
-                                        <Input />
-                                    </Item>
-                                </Right>
-                            </ListItem>
 
-                            <ListItem noBorder style={{ marginBottom: -15 }}>
+                            <ListItem noBorder style={{ marginBottom: -10, marginTop: 15 }}>
                                 <Text>Categoria:</Text>
                             </ListItem>
 
-                            <ListItem noBorder>
+                            <ListItem noBorder style={{ marginBottom: -15 }}
+                                selected={this.state.radioCategoria}>
                                 <Left>
-                                    <Text>Festa/Bar/Ambos</Text>
+                                    <Text>Festa/Bar</Text>
                                 </Left>
                                 <Right>
-                                    <Radio selected={this.state.radio} />
+                                    <Radio style={styles.botaoRadio}
+                                        selected={this.state.radioCategoria} />
                                 </Right>
                             </ListItem>
 

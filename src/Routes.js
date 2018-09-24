@@ -5,6 +5,7 @@ import FormLogin from './screens/Login/FormLogin';
 import FormRecupSenha from './screens/Login/FormRecupSenha';
 
 import HomeFestas from './screens/Festas/HomeFestas';
+import AddEvent from './screens/Festas/AddEvent';
 
 import HomeBares from './screens/Bares/HomeBares';
 
@@ -15,6 +16,8 @@ import EditLocaisFestas from './screens/SuperAdmin/EditLocaisFestas';
 import VisuSolicitEmp from './screens/SuperAdmin/VisuSolicitEmp';
 import VisuEmpCad from './screens/SuperAdmin/VisuEmpCad';  
 import AddEmpresas from './screens/SuperAdmin/AddEmpresas';
+
+
 
 
 
@@ -30,6 +33,7 @@ export default props => (
             <Scene key='formRecupSenha' component={FormRecupSenha} hideNavBar={true}/>
 
             <Scene key='homeFestas' component={HomeFestas} hideNavBar={true}/>
+            <Scene key='addEvent' component={AddEvent} hideNavBar={true}/>
 
             <Scene key='homeBares' component={HomeBares} hideNavBar={true}/>
 
